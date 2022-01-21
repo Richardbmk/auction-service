@@ -3,3 +3,4 @@
 $ sls deploy --verbose
 $ sls deploy --verbose --aws-profile development
 $ sls remove --verbose --aws-profile development
+$ sls deploy --verbose -f createAuction --aws-profile development
