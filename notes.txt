@@ -7,6 +7,7 @@ $ sls remove --verbose --aws-profile development
 // Execute functions
 $ sls deploy --verbose -f createAuction --aws-profile development
 $ sls deploy --verbose -f getAuction --aws-profile development
+$ sls deploy --verbose -f getAuctions --aws-profile development
 
 // Middy
 repo: https://github.com/middyjs/middy
