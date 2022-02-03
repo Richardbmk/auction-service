@@ -7,3 +7,6 @@ jspm_packages
 
 # Webpack directories
 .webpack
+
+Auth0 Configuration
+auth0-conf.sh
