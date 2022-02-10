@@ -3,7 +3,7 @@
 $ sls deploy --verbose
 $ sls deploy --verbose --aws-profile development
 $ sls remove --verbose --aws-profile development
-$ sls deploy --verbose --stage dev --aws-profile developmen
+$ sls deploy --verbose --stage dev --aws-profile development
 
 // Execute functions
 $ sls deploy function -f createAuction --verbose  --aws-profile development
