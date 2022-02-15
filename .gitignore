@@ -10,3 +10,4 @@ jspm_packages
 
 Auth0 Configuration
 auth0-conf.sh
+secret.pem
