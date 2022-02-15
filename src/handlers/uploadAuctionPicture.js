@@ -26,7 +26,7 @@ export async function uploadAuctionPicture(event) {
     try {
         const pictureUrl = await uploadPictureToS3(auction.id + '.jpg', buffer);
         //Set pictureUrl into auction data
-        updateAuction = setAuctionPictureUrl(auction.id, pictureUrl);
+        updateAuction = await setAuctionPictureUrl(auction.id, pictureUrl);
         
     } catch (error) {
         console.error(error);

@@ -1,9 +1,10 @@
 const schema = {
+  type: "object",
   properties: {
     body: {
       type: "string",
-        type: "integer",
-        minLength: 1,
+      minLength: 1,
+      pattern: '\=$'
     },
   },
   required: ["body"],
