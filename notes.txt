@@ -25,3 +25,5 @@ $ serverless
 // Manual execution of a function
 $ sls invoke -f processAuctions -l --aws-profile development
 $ sls deploy function -f processAuctions --verbose --aws-profile development
+$ sls deploy function -f uploadAuctionPicture --verbose --aws-profile development
+$ sls logs -f uploadAuctionPicture -t
