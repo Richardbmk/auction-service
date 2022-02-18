@@ -1,7 +1,6 @@
 org: richardbmk
 app: auction-service
-service:
-  auction-service
+service: auction-service
 
 plugins:
   - serverless-bundle
@@ -36,6 +35,7 @@ functions:
       - http:
           method: PUT
           path: /info
+          cors: true
 
   createAuction:
     handler: src/handlers/createAuction.handler
@@ -43,6 +43,7 @@ functions:
       - http:
           method: POST
           path: /auction
+          cors: true
           authorizer: ${self:custom.authorizer}
 
   getAuctions:
@@ -51,6 +52,7 @@ functions:
       - http:
           method: GET
           path: /auctions
+          cors: true
           authorizer: ${self:custom.authorizer}
 
   getAuction:
@@ -59,6 +61,7 @@ functions:
       - http:
           method: GET
           path: /auction/{id}
+          cors: true
           authorizer: ${self:custom.authorizer}
 
   placeBid:
@@ -67,16 +70,18 @@ functions:
       - http:
           method: PATCH
           path: /auction/{id}/bid
+          cors: true
           authorizer: ${self:custom.authorizer}
-          
+
   uploadAuctionPicture:
     handler: src/handlers/uploadAuctionPicture.handler
     events:
       - http:
           method: PATCH
           path: /auction/{id}/picture
+          cors: true
           authorizer: ${self:custom.authorizer}
-          
+
   processAuctions:
     handler: src/handlers/processAuctions.handler
     # events:
