@@ -1,7 +1,6 @@
 org: richardbmk
 app: auction-service
-service:
-  auction-service
+service: auction-service
 
 plugins:
   - serverless-bundle
@@ -68,7 +67,7 @@ functions:
           method: PATCH
           path: /auction/{id}/bid
           authorizer: ${self:custom.authorizer}
-          
+
   uploadAuctionPicture:
     handler: src/handlers/uploadAuctionPicture.handler
     events:
@@ -76,7 +75,7 @@ functions:
           method: PATCH
           path: /auction/{id}/picture
           authorizer: ${self:custom.authorizer}
-          
+
   processAuctions:
     handler: src/handlers/processAuctions.handler
     # events:
