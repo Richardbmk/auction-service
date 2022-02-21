@@ -1,13 +1,13 @@
 const schema = {
-  type: "object",
+  type: 'object',
   properties: {
     body: {
-      type: "string",
+      type: 'string',
       minLength: 1,
-      pattern: '\=$'
+      pattern: '=$',
     },
   },
-  required: ["body"],
+  required: ['body'],
 };
 
 export default schema;

@@ -1,18 +1,18 @@
 const schema = {
-  type: "object",
+  type: 'object',
   properties: {
     queryStringParameters: {
-      type: "object",
+      type: 'object',
       properties: {
         status: {
-          type: "string",
-          enum: ["OPEN", "CLOSED"],
-          default: "OPEN",
+          type: 'string',
+          enum: ['OPEN', 'CLOSED'],
+          default: 'OPEN',
         },
       },
     },
   },
-  required: ["queryStringParameters"],
+  required: ['queryStringParameters'],
 };
 
 export default schema;
