@@ -1,6 +1,6 @@
-import AWS from "aws-sdk";
-import commonMiddleware from "../lib/commonMiddleware";
-import createError from "http-errors";
+import AWS from 'aws-sdk';
+import commonMiddleware from '../lib/commonMiddleware';
+import createError from 'http-errors';
 
 const dynamodb = new AWS.DynamoDB.DocumentClient();
 
@@ -34,6 +34,11 @@ async function getAuction(event, context) {
 
   return {
     statusCode: 200,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Credentials': true,
+      'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+    },
     body: JSON.stringify({ auction }),
   };
 }

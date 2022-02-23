@@ -1,9 +1,9 @@
-import AWS from "aws-sdk";
-import validator from "@middy/validator";
-import commonMiddleware from "../lib/commonMiddleware";
-import createError from "http-errors";
-import { getAuctionById } from "./getAuction";
-import placeBidSchema from "../lib/schemas/placeBidSchema";
+import AWS from 'aws-sdk';
+import validator from '@middy/validator';
+import commonMiddleware from '../lib/commonMiddleware';
+import createError from 'http-errors';
+import { getAuctionById } from './getAuction';
+import placeBidSchema from '../lib/schemas/placeBidSchema';
 
 const dynamodb = new AWS.DynamoDB.DocumentClient();
 
@@ -25,7 +25,7 @@ async function placeBid(event, context) {
   }
 
   // Auction status validation
-  if (auction.status !== "OPEN") {
+  if (auction.status !== 'OPEN') {
     throw new createError.Forbidden(`You can not bid on closed auctions!`);
   }
 
@@ -40,12 +40,12 @@ async function placeBid(event, context) {
     TableName: process.env.AUCTIONS_TABLE_NAME,
     Key: { id },
     UpdateExpression:
-      "set highestBid.amount = :amount, highestBid.bidder = :bidder",
+      'set highestBid.amount = :amount, highestBid.bidder = :bidder',
     ExpressionAttributeValues: {
-      ":amount": amount,
-      ":bidder": email,
+      ':amount': amount,
+      ':bidder': email,
     },
-    ReturnValues: "ALL_NEW",
+    ReturnValues: 'ALL_NEW',
   };
 
   let updateAuction;
@@ -60,6 +60,11 @@ async function placeBid(event, context) {
 
   return {
     statusCode: 200,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Credentials': true,
+      'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+    },
     body: JSON.stringify({ updateAuction }),
   };
 }
