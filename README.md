@@ -55,13 +55,11 @@ Simple REST API using the Serverless Framework
 ​
 | HTTP Method | URL | Request Body | Success status | Error Status | Description |
 | ----------- | --------------------------- | -------------------------------------------------- | -------------- | ------------ | ------------------------------------------------------------ |
-| GET | `/profile` | Saved session | 200 | 404 | Check if user is logged in and return profile page |
-| GET | `/profile` | Saved session | 200 | 404 | Check if user is logged in and return profile page |
-| GET | `/profile` | Saved session | 200 | 404 | Check if user is logged in and return profile page |
-| PATCH | `/profile/edit/:id` | {username, email, image, phone} | 200 | 400 | Update user profile |
-| GET | `/profile/allusers` | | 200 | 400 | Get all the users |
-| GET | `/profile/allusers/search` | {id} | 200 | 400 | Get all the expenses | | DELETE |`/expense/delete/:id` | {id} | 200 | 400 | Delete an existing expense |
-| GET | /arrangements | | 200 | 400 | Check all your debts and all your pending incomes |
+| POST | `{{AUCTION_HOST}}/auction` | {"title": "Fambruesas"} | 200 | 500 | Create new Auction |
+| GET | `{{AUCTION_HOST}}/auctions?status=OPEN` | | 200 | 500 | Find all OPEN or CLOSED Auctions |
+| GET | `{{AUCTION_HOST}}/auction/:id` | | 200 | 404, 500 | Find Auction by ID |
+| PATCH | `{{AUCTION_HOST}}/auction/:id/bid` | | 200 | 400, 500 | Bid Auction |
+| PUT | `{{AUCTION_HOST}}/auction/:id/picture` | | 200 | 400 | Upload picture for auction ID |
 ​
 ​
 
@@ -75,31 +73,18 @@ The REST API to the example app is described below.
 
 `GET /thing/`
 
-```json
-POST /login HTTP/1.1
-Accept: application/json
-Content-Type: application/json
-Content-Length: xy
-
-{
-    "username": "foo",
-    "password": "1234567"
-}
-```
+    curl -i -H 'Accept: application/json' http://localhost:7000/thing/
 
 ### Response
 
-```json
-HTTP/1.1 200 OK
-Server: My RESTful API
-Content-Type: application/json
-Content-Length: xy
+    HTTP/1.1 200 OK
+    Date: Thu, 24 Feb 2011 12:36:30 GMT
+    Status: 200 OK
+    Connection: close
+    Content-Type: application/json
+    Content-Length: 2
 
-{
-   "apitoken": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-   "expirationDate": "2018-02-13T15:31:55.559Z"
-}
-```
+    []
 
 ​
 
@@ -120,10 +105,9 @@ Content-Length: xy
 ### Notion
 
 ​
-https://trello.com/b/fmtoOs4Z/organitzaci%C3%B3-projecte-3
+
 ​
 
 ### Documentation
 
 ​
-https://docs.google.com/presentation/d/1HTo5i0nOMyy3eusWxx-fVmbrW6Rfadvh/edit#slide=id.gad0d515f45_0_529
