@@ -59,7 +59,7 @@ Simple REST API using the Serverless Framework
 | GET | `{{AUCTION_HOST}}/auctions?status=OPEN` | | 200 | 500 | Find all OPEN or CLOSED Auctions |
 | GET | `{{AUCTION_HOST}}/auction/:id` | | 200 | 404, 500 | Find Auction by ID |
 | PATCH | `{{AUCTION_HOST}}/auction/:id/bid` | | 200 | 400, 500 | Bid Auction |
-| PUT | `{{AUCTION_HOST}}/auction/:id/picture` | | 200 | 400 | Upload picture for auction ID |
+| PUT | `{{AUCTION_HOST}}/auction/:id/picture` | | 200 | 400, 500 | Upload picture for auction ID |
 ​
 ​
 
@@ -92,6 +92,7 @@ The REST API to the example app is described below.
 
 ​
 <img src="./src/pages/images/wireframes-project3.png"/>
+<img src="./auction-architecture00.jpeg"/>
 
 ## Microservices related with this Project
 
